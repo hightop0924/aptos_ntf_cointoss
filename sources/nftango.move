@@ -136,7 +136,7 @@ module overmind::nftango {
     fun get_resource_account_cap(game_address : address) : signer acquires NFTangoStore{
         let store = borrow_global<NFTangoStore>(game_address);
         account::create_signer_with_capability(&store.signer_capability)
-    }
+    } 
 
     //
     // Entry functions
@@ -147,7 +147,7 @@ module overmind::nftango {
         collection_name: String,
         token_name: String,
         property_version: u64,
-        join_amount_requirement: u64
+        join_amount_requirement: u64 
     ) {
         // TODO: run assert_nftango_store_does_not_exist
         assert_nftango_store_does_not_exist(signer::address_of(account));
